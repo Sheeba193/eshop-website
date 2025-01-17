@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Container from "../Contaner";
+import Container from "../Container";
 import { Redressed } from "next/font/google";
 
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"]});
