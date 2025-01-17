@@ -38,7 +38,7 @@ export const product = {
         createdDate: "2023-06-26T15:53:44.483Z",
         user: {
           id: "6499b184b0e9a8c8709821d3",
-          name: "Chaoo",
+          name: "Kerubo",
           email: "example1@gmail.com",
           emailVerified: null,
           image:
@@ -55,10 +55,10 @@ export const product = {
         productId: "648437b38c44d52b9542e340",
         rating: 5,
         comment: "I really liked it!!",
-        createdDate: "2023-06-26T14:30:40.998Z",
+        createdDate: "2024-06-26T14:30:40.998Z",
         user: {
           id: "6475af156bad4917456e6e1e",
-          name: "Charles",
+          name: "Sheeba",
           email: "example@gmail.com",
           emailVerified: null,
           image:

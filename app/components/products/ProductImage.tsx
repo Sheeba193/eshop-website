@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { CartProductType, SelectedImgType } from "@/app/product/[productId]/ProductDetails";
 import Image from "next/image";
@@ -36,13 +36,13 @@ const ProductImage:React.FC<ProductImageProps> = ({
                 min-h-[300px]
                 sm:min-h-[400px]"
             >
-                {product.images.map((image:SelectedImgType) => {
+                {product.images.map((image: SelectedImgType) => {
                     return(
-                        <div 
-                        key={image.color} onClick={() => handleColorSelect(image)} 
+                        <div key={image.color} 
+                        onClick={() => handleColorSelect(image)} 
                         className= {`
                             relative
-                            w-80%
+                            w-[80%]
                             aspect-square
                             rounded
                             border-teal-300
@@ -50,8 +50,8 @@ const ProductImage:React.FC<ProductImageProps> = ({
                             `}
                         >
                             <Image 
-                            src={image.image}
-                            alt={image.color}
+                            src= {image.image}
+                            alt= {image.color}
                             fill
                             className="object-contain" />
                         </div>
