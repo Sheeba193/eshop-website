@@ -2,11 +2,13 @@
 
 import { CartProductType } from "@/app/product/[productId]/ProductDetails";
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import {toast} from 'react-hot-toast';
 
 type CartContentType = {
     cartTotalQty : number;
     cartProducts : CartProductType[] | null;
     handleAddProductToCart: (product: CartProductType) => void;
+    handleRemoveProductFromCart: (product: CartProductType) => void;
 };
 
 export const CartContext = createContext<CartContentType | null> (null);
@@ -36,15 +38,35 @@ export const CartContextProvider = (props: Props) => {
                 updatedCart = [product];
             }
 
+            toast.success("Product added to cart");
+
             localStorage.setItem('eShopCartItems' , JSON.stringify(updatedCart ) );
             return updatedCart;
         } );
     }, []);
+
+    const handleRemoveProductFromCart =useCallback((
+        product: CartProductType
+    ) => {
+        if(cartProducts){
+            const filteredProducts = cartProducts.filter((item) => {
+                return item.id === product.id;
+            })
+
+            setCartProducts(filteredProducts);
+            toast.success("Product has been removed");
+            localStorage.setItem("eShopCartItems", JSON.stringify(filteredProducts));
+            
+        }
+    }, [cartProducts]);
+    
+
     
     const value = {
         cartTotalQty,
         cartProducts,
         handleAddProductToCart,
+        handleRemoveProductFromCart,
     };
 
     return <CartContext.Provider value={value} {...props}/> ;
