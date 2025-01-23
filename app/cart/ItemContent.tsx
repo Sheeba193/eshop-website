@@ -13,7 +13,13 @@ interface ItemContentProps{
 };
 
 const ItemContent: React.FC<ItemContentProps> = ({item}) => {
-    const {handleRemoveProductFromCart} = UseCart();
+    const {handleRemoveProductFromCart, 
+        handleCartQtyIncrease, 
+        handleCartQtyDecrease} = UseCart();
+
+    // function handleCartQtyIncrease(item: CartProductType) {
+    //     throw new Error("Function not implemented.");
+    // }
 
     return ( 
         <div className="grid 
@@ -59,8 +65,12 @@ const ItemContent: React.FC<ItemContentProps> = ({item}) => {
                 <SetQuantity 
                     cartCounter={true}
                     cartProduct={item}
-                    handleQtyDecrease={() => {}}
-                    handleQtyIncrease={() => {}}
+                    handleQtyDecrease={() => {
+                        handleCartQtyDecrease(item);
+                    }}
+                    handleQtyIncrease={() => {
+                        handleCartQtyIncrease(item);
+                    }}
                 />
             </div>
             <div className="justify-self-end font-semibold">
